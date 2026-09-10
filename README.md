@@ -195,6 +195,14 @@ Typical local dataset folders include fall videos, activity recognition videos, 
 - Alert viewer
 - **Issue:** No documented API contracts with backend
 
+### **🖼️ App Screenshots**
+
+The `App/` folder contains a few UI screenshots from the mobile experience:
+
+- [dashboard.jpeg](App/dashboard.jpeg)
+- [notification.jpeg](App/notification.jpeg)
+- [Dasshboard.jpeg](App/Dasshboard.jpeg)
+
 ---
 
 ## 🔄 Data Flow Pipeline
