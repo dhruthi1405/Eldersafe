@@ -1,0 +1,17 @@
+ultralytics
+mediapipe==0.10.33
+opencv-python
+numpy
+pandas
+torch
+torchvision
+torchaudio
+scikit-learn
+matplotlib
+seaborn
+tqdm
+plotly
+dash
+google-api-python-client
+google-auth-oauthlib
+google-auth-httplib2

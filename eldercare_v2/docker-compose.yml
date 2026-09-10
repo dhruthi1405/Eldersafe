@@ -1,0 +1,87 @@
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: eldercare-db
+    environment:
+      POSTGRES_USER: eldercare_user
+      POSTGRES_PASSWORD: secure_password_123
+      POSTGRES_DB: eldercare_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U eldercare_user -d eldercare_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: eldercare-backend
+    env_file:
+      - ./backend/.env
+    environment:
+      DATABASE_URL: postgresql://eldercare_user:secure_password_123@postgres:5432/eldercare_db
+      SECRET_KEY: your_secret_key_change_in_production
+      ENVIRONMENT: development
+      FIREBASE_KEY_PATH: /app/serviceAccountKey.json
+      FCM_DEVICE_TOKEN: ${FCM_DEVICE_TOKEN:-}
+      FCM_DEVICE_TOKENS: ${FCM_DEVICE_TOKENS:-}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - backend_uploads:/app/uploads
+      - ../outputs:/app/outputs
+      - ../pipeline:/app/pipeline
+      - ../models:/app/models
+      - ../configs:/app/configs
+      - ../datasets:/app/datasets
+      - ../alerts:/app/alerts
+      - ../serviceAccountKey.json:/app/serviceAccountKey.json:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: eldercare-frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      VITE_API_URL: http://localhost:8000/api
+      VITE_WS_URL: ws://localhost:8000
+    command: npm run dev -- --host
+
+  # Redis (for caching and session management)
+  redis:
+    image: redis:7-alpine
+    container_name: eldercare-redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+  backend_uploads:
+
+networks:
+  default:
+    name: eldercare-network

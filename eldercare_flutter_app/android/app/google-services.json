@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "92549361148",
+    "project_id": "eldersafe-16e15",
+    "storage_bucket": "eldersafe-16e15.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92549361148:android:e10335554d63bd2d3c9679",
+        "android_client_info": {
+          "package_name": "com.elderc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92549361148-n2c7vol2fe4m4hitobj65g5agd23sdol.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.elderc",
+            "certificate_hash": "d9299705494670599718cc1ff4106cbbb6404de7"
+          }
+        },
+        {
+          "client_id": "92549361148-2ngmvcjh4nk4h0l4prjhlovpa0hqd6qh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPRa_aECUp94RiCd3M1azzdcsPFCnCGBw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "92549361148-2ngmvcjh4nk4h0l4prjhlovpa0hqd6qh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

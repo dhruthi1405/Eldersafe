@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Local secrets and credentials
+serviceAccountKey.json
+eldercare_v2/backend/serviceAccountKey.json
+**/.env
+
+# Model checkpoints and generated outputs
+*.pt
+models/*.pth
+datasets/
+outputs/
+logs/
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Flutter / build artifacts
+eldercare_flutter_app/build/
+eldercare_flutter_app/.dart_tool/
+eldercare_flutter_app/.flutter-plugins
+eldercare_flutter_app/.flutter-plugins-dependencies
+eldercare_flutter_app/.metadata
+eldercare_flutter_app/android/.gradle/
+eldercare_flutter_app/android/app/**/*.iml
+eldercare_v2/frontend/node_modules/
+eldercare_v2/frontend/dist/
+
