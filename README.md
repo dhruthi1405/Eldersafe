@@ -38,7 +38,7 @@ ElderCareProject/
 │   └── config.py              # All thresholds, paths, credentials in one place
 │
 ├── datasets/                  # Data storage
-│   ├── raw/                   # Raw videos (LE2I, HMDB51, multiple cameras, etc.)
+│   ├── raw/                   # Raw videos stored locally
 │   └── processed/             # Extracted poses as CSV files
 │
 ├── eldercare_flutter_app/     # Mobile app (separate, not fully integrated)
@@ -51,6 +51,16 @@ ElderCareProject/
 ---
 
 ## 🚀 Quick Start (30 seconds)
+
+---
+
+## 🎬 Demo Video
+
+The demo video is part of the repository, but GitHub does not auto-play videos when someone opens the repo page. Viewers need to click the file or the link below to play it.
+
+- [Open demo video](Demo%20video.mp4)
+
+If you want an always-visible preview on the README itself, the usual option is to add a short animated GIF or a linked thumbnail instead of relying on auto-play.
 
 ### **Option 1: Docker (Recommended)**
 ```bash
@@ -169,11 +179,9 @@ from configs.config import ALERT_THRESHOLDS, MODEL_CONFIG, EMAIL_CONFIG
 ### **📦 datasets/** (Data Storage)
 **Status:** ⚠️ Partial (structure exists, some datasets may be placeholder)
 
-Raw datasets:
-- LE2I French fall database
-- HMDB51 action recognition
-- Multiple cameras fall videos
-- HAR (Human Activity Recognition) videos
+Raw datasets are stored locally under `datasets/raw/` and are not meant to be committed to GitHub.
+
+Typical local dataset folders include fall videos, activity recognition videos, and multi-camera capture sets.
 
 **Read:** [datasets/README.md](datasets/README.md) for management
 
@@ -385,11 +393,11 @@ CONFIDENCE_THRESHOLD=0.35
 
 ## 📞 Support
 
-- **Architecture Questions:** See [eldercare_v2/INDEX.md](eldercare_v2/INDEX.md)
-- **Setup Issues:** See [eldercare_v2/SETUP.md](eldercare_v2/SETUP.md)
+- **Architecture Questions:** See [eldercare_v2/README.md](eldercare_v2/README.md)
+- **Setup Issues:** See [eldercare_v2/README.md](eldercare_v2/README.md)
 - **ML Pipeline:** See [pipeline/README.md](pipeline/README.md)
-- **Configuration:** See [configs/README.md](configs/README.md)
-- **Model Training:** See [models/README.md](models/README.md)
+- **Configuration:** See [configs/config.py](configs/config.py)
+- **Model Training:** See [models/train.py](models/train.py)
 
 ---
 
