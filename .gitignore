@@ -14,7 +14,10 @@ eldercare_v2/backend/serviceAccountKey.json
 # Model checkpoints and generated outputs
 *.pt
 models/*.pth
-datasets/
+datasets/raw/
+!datasets/
+!datasets/processed/
+!datasets/processed/**
 outputs/
 logs/
 
